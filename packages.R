@@ -6,13 +6,19 @@ if(length(new.packages)) install.packages(new.packages)
 # Workflow organization
 pacman::p_load(conflicted, 
 dotenv, 
-targets)
+targets, 
+tarchetypes)
 
 # Data wrangling
 pacman::p_load(dplyr, 
 tidyr, 
 janitor, 
-jsonlite)
+jsonlite, 
+tibble, 
+stringr)
+
+# Parallel
+pacman::p_load(snow)
 
 # Analysis
 pacman::p_load(qtl)
