@@ -11,7 +11,8 @@ targets)
 # Data wrangling
 pacman::p_load(dplyr, 
 tidyr, 
-janitor)
+janitor, 
+jsonlite)
 
 # Analysis
 pacman::p_load(qtl)
