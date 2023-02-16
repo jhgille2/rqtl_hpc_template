@@ -15,6 +15,8 @@ do_stepwise_mapping <- function(simulated_cross, cross_permutations, pheno) {
     pheno_col_number <- str_detect(phenames(simulated_cross), paste0("\\b", pheno, "\\b")) %>% which()
     pheno_penalties  <- calc.penalties(cross_permutations, lodcolumn = pheno_col_number)
 
+    simulated_cross <- calc.genoprob(simulated_cross)
+
     # Perform stepwise mapping on the given phenotype
     stepwise_result <- stepwiseqtl(cross     = simulated_cross, 
                                    pheno.col = pheno, 

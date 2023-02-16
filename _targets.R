@@ -1,3 +1,6 @@
+## Local parallelization
+options(clustermq.scheduler="multiprocess")
+
 ## Load your packages, e.g. library(targets).
 source("./packages.R")
 
