@@ -37,14 +37,15 @@ tar_plan(
   ##################################################
   # The qtl cross file
   tar_file(cross_file,
-           here::here("data", "cross.csv")),
+           here::here("data", "raleigh_soja_cross.csv")),
 
   # Read in the cross file
   tar_target(cross,
              read.cross(file         = cross_file,
                         format       = "csv",
                         map.function = "kosambi",
-                        F.gen        = 4)),
+                        F.gen        = 4,
+                        genotypes    = c("AA", "AB", "BB", "A-", "B-"))),
   
   
   # Permutations. Run internally in parallel using snow. 

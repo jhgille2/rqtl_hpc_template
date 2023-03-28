@@ -9,13 +9,13 @@
 #' @return
 #' @author Jay Gillenwater
 #' @export
-do_stepwise_mapping <- function(simulated_cross, cross_permutations, pheno, sig_alpha) {
+do_stepwise_mapping <- function(cross, cross_permutations, pheno, sig_alpha) {
 
       # First, get the phenotype column number and the penalties for the phenotype
-    pheno_col_number <- str_detect(phenames(simulated_cross), paste0("\\b", pheno, "\\b")) %>% which()
+    pheno_col_number <- str_detect(phenames(cross), paste0("\\b", pheno, "\\b")) %>% which()
     pheno_penalties  <- calc.penalties(cross_permutations, 
                                        lodcolumn = pheno_col_number,
-                                       alpha = sig_alpha)
+                                       alpha     = sig_alpha)
 
     simulated_cross <- calc.genoprob(simulated_cross)
 
