@@ -1,10 +1,10 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|488360673a85543b|||||||||||||||
+.Random.seed|object|48e1023d9d93c831|||||||||||||||
 cross|stem|b564d606d2dd16f2|61ae9bf1894387b9|86432b4aff7e6c23|-2066266174||t19444.7882989628s|16a583e9e56a1dd5|114961|rds|local|vector|||0.58||
 cross_file|stem|e939915d7873e3c0|d7b045e6e24d92a3|c3b5fc02cdc369c1|1150223950|C:/Users/jhgille2/Documents/R/projects/rqtl_hpc_template/data/raleigh_soja_cross.csv|t19444.7797916667s|fb53f59ee8de5ed4|1028708|file|local|vector|||0||
-cross_permutations|stem|2bac03a6577205a9|f7670f12e4d684c3|3268da6de8bc43ce|-451217817||t19404.6988588183s|e3fe1faf80820e02|762|rds|local|vector|||57.819||
+cross_permutations|stem|2bac03a6577205a9|5c14481fa4684b68|b83b7830c06705ab|-451217817||t19404.6988588183s||762|rds|local|vector|||4.48||2 nodes produced errors first error node stack overflow
 do_permutations|function|b708aae8e30853d8|||||||||||||||
-do_stepwise_mapping|function|b14212148980439b|||||||||||||||
+do_stepwise_mapping|function|dcc5c6a6394dad09|||||||||||||||
 list.of.packages|object|f4a6db2f1a9b77a4|||||||||||||||
 mapping_params|object|94096ab990b71c67|||||||||||||||
 mapping_targets|object|2777809b11f70c68|||||||||||||||

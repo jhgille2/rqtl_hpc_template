@@ -53,8 +53,8 @@ tar_plan(
   tar_target(cross_permutations, 
              do_permutations(cross, 
                              n_perm  = 1000, 
-                             n_cores = 50, 
-                             phenos  = unique(pheno_names$pheno))), 
+                             n_cores = 2, 
+                             phenos  = unique(mapping_params$pheno))), 
   
   # QTL mapping with stepwiseqtl, use static branching to 
   # run targets in parallel
