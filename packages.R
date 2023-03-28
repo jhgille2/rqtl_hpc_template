@@ -15,7 +15,8 @@ tidyr,
 janitor,
 jsonlite,
 tibble,
-stringr)
+stringr,
+readr)
 
 # Parallel
 pacman::p_load(snow,
