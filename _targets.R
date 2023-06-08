@@ -52,14 +52,15 @@ tar_plan(
   # change n_cores to match how many cores are requested 
   tar_target(cross_permutations, 
              do_permutations(cross, 
-                             n_perm  = 1000, 
-                             n_cores = 2, 
+                             n_perm  = 2500, 
+                             n_cores = 50, 
                              phenos  = unique(mapping_params$pheno))), 
   
   # QTL mapping with stepwiseqtl, use static branching to 
   # run targets in parallel
   mapping_targets <- tar_map(
-    # Get phenotype names from the tibble
+    
+    # Get phenotype names and significance thresholds from the tibble
     values = mapping_params, 
     
     # Stepwise mapping targets

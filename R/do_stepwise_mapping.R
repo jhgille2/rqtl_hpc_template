@@ -18,19 +18,24 @@ do_stepwise_mapping <- function(cross, cross_permutations, pheno, sig_alpha) {
       purrr::pluck("full") %>% 
       colnames()
     
+    # Get the index of the phenotype name in the permutation column names
     perm_col_index <- str_detect(perm_col_names, paste0("\\b", pheno, "\\b")) %>% which()
     
-    pheno_penalties  <- calc.penalties(cross_permutations, lodcolumn = perm_col_index)
+    # Calculate the penalties for the 
+    pheno_penalties  <- calc.penalties(cross_permutations, 
+                                       lodcolumn = perm_col_index,
+                                       alpha     = sig_alpha)
 
     simulated_cross <- calc.genoprob(simulated_cross)
 
     # Perform stepwise mapping on the given phenotype
-    stepwise_result <- stepwiseqtl(cross     = simulated_cross, 
-                                   pheno.col = pheno, 
-                                   method    = "hk", 
-                                   penalties = pheno_penalties, 
-                                   keeptrace = TRUE, 
-                                   refine.locations = TRUE)
+    stepwise_result <- stepwiseqtl(cross            = simulated_cross, 
+                                   pheno.col        = pheno, 
+                                   method           = "hk", 
+                                   penalties        = pheno_penalties, 
+                                   keeptrace        = TRUE, 
+                                   refine.locations = TRUE,
+                                   additive.only    = TRUE)
 
     # Return the result of the mapping
     return(stepwise_result)
