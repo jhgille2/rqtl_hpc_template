@@ -18,7 +18,7 @@ do_permutations <- function(cross, n_perm = 100, n_cores = 5, phenos = pheno_nam
   # Do scantwo permutations of chunks of size interval-width +  1
   # permutation_chunks <- vector("list", length = n_intervals)
   
-  permutatation_chunks <- vector("list", length = nphe(cross) - 1)
+  permutation_chunks <- vector("list", length = nphe(cross) - 1)
   for(i in 1:length(permutation_chunks)){
     
     int_end   <- int_start + interval_width
