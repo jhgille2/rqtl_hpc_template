@@ -42,9 +42,9 @@ do_permutations <- function(cross, n_perm = 100, n_cores = 5, phenos = pheno_nam
     int_start <- int_end + 1
   }
   
-  # Combine all permutations
-  scantwo_perms <- permutation_chunks %>% 
-    reduce(cbind)
+  # # Combine all permutations
+  # scantwo_perms <- permutation_chunks %>% 
+  #   reduce(cbind)
   
-  return(scantwo_perms)
+  return(permutation_chunks)
 }

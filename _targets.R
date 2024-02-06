@@ -37,7 +37,7 @@ tar_plan(
   ##################################################
   # The qtl cross file
   tar_file(cross_file,
-           here::here("data", "CLA_cross.csv")),
+           here::here("data", "raleigh_soja_cross.csv")),
 
   # Read in the cross file
   tar_target(cross,
@@ -56,6 +56,11 @@ tar_plan(
                              n_cores = 250, 
                              phenos  = unique(mapping_params$pheno))), 
   
+  # Combine all permutations
+  tar_target(combined_permutations,
+             cross_permutations %>% 
+               reduce(cbind)),
+  
   # QTL mapping with stepwiseqtl, use static branching to 
   # run targets in parallel
   mapping_targets <- tar_map(
@@ -66,7 +71,7 @@ tar_plan(
     # Stepwise mapping targets
     tar_target(stepwise_results, 
                do_stepwise_mapping(cross, 
-                                   cross_permutations, 
+                                   combined_permutations, 
                                    pheno,
                                    sig_alpha))
   ), 

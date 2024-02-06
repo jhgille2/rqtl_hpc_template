@@ -9,12 +9,12 @@
 #' @return
 #' @author Jay Gillenwater
 #' @export
-do_stepwise_mapping <- function(cross, cross_permutations, pheno, sig_alpha) {
+do_stepwise_mapping <- function(cross, combined_permutations, pheno, sig_alpha) {
 
     # First, get the phenotype column number and the penalties for the phenotype
     pheno_col_number <- str_detect(phenames(simulated_cross), paste0("\\b", pheno, "\\b")) %>% which()
     
-    perm_col_names <- cross_permutations %>% 
+    perm_col_names <- combined_permutations %>% 
       purrr::pluck("full") %>% 
       colnames()
     
@@ -22,7 +22,7 @@ do_stepwise_mapping <- function(cross, cross_permutations, pheno, sig_alpha) {
     perm_col_index <- str_detect(perm_col_names, paste0("\\b", pheno, "\\b")) %>% which()
     
     # Calculate the penalties for the 
-    pheno_penalties  <- calc.penalties(cross_permutations, 
+    pheno_penalties  <- calc.penalties(combined_permutations, 
                                        lodcolumn = perm_col_index,
                                        alpha     = sig_alpha)
 
